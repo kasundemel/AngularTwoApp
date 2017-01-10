@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-4 col-md-offset-3">
+          <strong>User Name :</strong> {{ name }}
+      </div>
+    <br>
+    <div class="col-md-4 col-md-offset-3">
+        <strong>Email Address :</strong> {{ email }}
+    </div>
+    <br>
+    <div class="col-md-4 col-md-offset-3">
+        <strong> Address :</strong> {{ address.number }} {{ address.street }}, {{ address.city }}
+    </div>
+    <br>
+    <br>
+    <div class="col-md-4 col-md-offset-4">
+      <button class="btn btn-success" (click)="viewHobby()">
+        View Hobbies
+      </button>
+      <br>
+    </div>
+    <br>
+    <div class="col-md-4 col-md-offset-3" *ngIf="viewhobby==false">
+        <ul *ngFor="let hobbies of hobby ; let i = index">
+          <li>{{ hobbies }}<button class="btn btn-danger" (click)="deleteHobby(i)">X</button></li>
+        </ul>
+        <form (submit)="addHobby(hobbies.value)">
+                <label>Add New Hobby</label>
+                <input type="name" #hobbies class="form-control">
+        </form>
+    </div>
+    <br>
+   <hr>
+    <form>
+
+        <div class="col-md-offset-3 col-md-4">
+          <label>Name :</label>
+          <input type="name" [(ngModel)]="name" name="name" class="form-control">
+        </div>
+      <br>
+        <div class="col-md-offset-3 col-md-4">
+          <label>Email :</label>
+          <input type="name" [(ngModel)]="email" name="email" class="form-control">
+        </div>
+      <br>
+        <hr>
+      <div class="col-md-3 col-md-offset-4">Address</div>
+      <br>
+        <div class="col-md-offset-3 col-md-4">
+          <label>Number :</label>
+          <input type="name" [(ngModel)]="address.number" name="address.number" class="form-control">
+        </div>
+      <br>
+        <div class="col-md-offset-3 col-md-4">
+          <label>Street :</label>
+          <input type="name" [(ngModel)]="address.street" name="address.street" class="form-control">
+        </div>
+        <br>
+        <div class="col-md-offset-3 col-md-4">
+          <label>City :</label>
+          <input type="name" [(ngModel)]="address.city" name="address.city" class="form-control">
+        </div>
+        <br>
+      <hr>
+    </form>
+  </div>
+
+  <br>
+  <hr>
+  <br>
+
+  <div class="row" *ngFor="let post of posts">
+    <div class="col-md-offset-3 col-md-6"><h3>{{post.title}}</h3></div>
+      <br>
+      <div class="col-md-offset-3 col-md-6">{{post.body}}</div>
+  </div>
+</div>
+
+
